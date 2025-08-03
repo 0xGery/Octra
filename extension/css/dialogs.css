@@ -1,0 +1,142 @@
+/* ============================================
+   OCTRA EXTENSION - DIALOG STYLES
+   Styles for popup dialogs, modals, and overlays
+   Used by wallet-list.js for wallet data export dialog
+   ============================================ */
+
+/* Wallet Data Dialog */
+.wallet-data-dialog-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: var(--overlay-bg) !important;
+    backdrop-filter: blur(4px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: var(--z-modal) !important;
+    isolation: isolate !important;
+    contain: layout style !important;
+}
+
+.wallet-data-dialog {
+    background: var(--dialog-bg);
+    border: 1px solid var(--dialog-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    max-width: 480px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--dialog-shadow);
+    backdrop-filter: blur(20px);
+}
+
+.wallet-data-dialog h2 {
+    color: var(--text-primary);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 var(--space-lg) 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+}
+
+.wallet-data-dialog .warning-text {
+    color: var(--error-color);
+    background: var(--error-bg);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin: 0 0 var(--space-xl) 0;
+    font-size: var(--font-size-sm);
+    border-left: 4px solid var(--error-color);
+}
+
+.wallet-data-section {
+    margin-bottom: var(--space-lg);
+}
+
+.wallet-data-section h3 {
+    color: var(--primary-color);
+    margin: 0 0 var(--space-sm) 0;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.wallet-data-field {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.wallet-data-field input,
+.wallet-data-field textarea {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-family: 'Courier New', monospace;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.wallet-data-field input:focus,
+.wallet-data-field textarea:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.wallet-data-field textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.wallet-data-field .copy-btn {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--primary-gradient);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--glass-shadow);
+}
+
+.wallet-data-field .copy-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--glass-shadow-strong);
+}
+
+.wallet-data-actions {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--dialog-border);
+    text-align: center;
+}
+
+.wallet-data-actions .btn {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--primary-gradient);
+    color: var(--text-inverse);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--glass-shadow);
+}
+
+.wallet-data-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow-strong);
+} 

@@ -48,3 +48,8 @@ coverage/
 # Web extension dev artifacts
 web-ext-artifacts/
 *.xpi
+ 
+# Project-specific ignores
+img/
+Octra_wallet.zip
+Octra_wallet/remove.js

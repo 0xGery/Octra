@@ -40,4 +40,4 @@ This extension is not directed to children under 13 and does not knowingly colle
 We may update this policy from time to time. Material changes will be reflected by updating the “Last updated” date above.
 
 ## Contact
-For privacy questions or requests, contact: support@yourdomain.tld
+For privacy questions or requests, contact: [Telegram](https://t.me/nullXgery)

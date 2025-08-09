@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Build/cache
+dist/
+build/
+out/
+.cache/
+.tmp/
+tmp/
+temp/
+
+# Dependencies
+node_modules/
+
+# Extension artifacts
+web-ext-artifacts/
+*.crx
+*.xpi
+*.zip
+*.pem
+
+# Local scripts
+remove.js
+
+

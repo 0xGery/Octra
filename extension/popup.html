@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/dialogs.css">
     <style>
+        /* Critical inline styles for extension popup sizing */
         html, body {
             width: 400px !important;
             height: 600px !important;
@@ -19,9 +20,11 @@
     </style>
 </head>
 <body>
+    <!-- Message Container -->
     <div id="message-container"></div>
 
     <div id="app">
+        <!-- Main Screen -->
         <div id="main-screen" class="screen">
             <div class="header">
                 <button id="wallets-btn" class="back-btn" title="Wallets">☰</button>
@@ -42,6 +45,7 @@
                         </button>
                     </div>
 
+                    <!-- Private Balance Section -->
                     <div class="private-balance-section" id="private-balance-section">
                         <div class="private-balance-item">
                             <span class="private-balance-label">Private:</span>
@@ -54,6 +58,7 @@
                     </div>
                 </div>
                 
+                <!-- Main Action Grid (3x3) -->
                 <div class="action-grid">
                     <button id="send-btn" class="btn btn-primary">
                         Send
@@ -84,12 +89,14 @@
                     </button>
                 </div>
                 
+                <!-- Footer -->
                 <div class="main-footer">
                     <span class="footer-text">created by 0xGery</span>
                 </div>
             </div>
         </div>
 
+        <!-- Tasks Screen -->
         <div id="tasks-screen" class="screen hidden">
             <div class="header">
                 <button id="tasks-back-btn" class="back-btn" title="Back">←</button>
@@ -99,9 +106,9 @@
             
             <div class="tasks-content">
                 <div class="tasks-list">
+                    <!-- OCS01 Smart Contract Test Task -->
                     <div class="task-card" data-task-id="ocs01-test">
                         <div class="task-header">
-                            <div class="task-icon">🔬</div>
                             <div class="task-info">
                                 <h3 class="task-title">OCS01 Contract Testing</h3>
                                 <p class="task-description">Interactive testing of smart contract methods</p>
@@ -121,10 +128,6 @@
                                     <span class="stat-label">Type:</span>
                                     <span class="stat-value">Smart Contract</span>
                                 </div>
-                                <div class="stat-item">
-                                    <span class="stat-label">Difficulty:</span>
-                                    <span class="stat-value">Beginner</span>
-                                </div>
                             </div>
                             
                             <div class="task-contract-info">
@@ -142,9 +145,9 @@
                         </div>
                     </div>
                     
+                    <!-- Placeholder for future tasks -->
                     <div class="task-card task-card-placeholder">
                         <div class="task-header">
-                            <div class="task-icon">⏳</div>
                             <div class="task-info">
                                 <h3 class="task-title">More Tasks Coming Soon</h3>
                                 <p class="task-description">Additional testing tasks will be available here</p>
@@ -155,6 +158,7 @@
             </div>
         </div>
 
+        <!-- First Time Setup Screen -->
         <div id="first-time-setup" class="screen hidden">
             <div class="header">
                 <div></div>
@@ -164,6 +168,7 @@
             
             <div style="padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-lg); flex: 1; overflow-y: auto;">
                 <form id="initial-setup-form" style="display: flex; flex-direction: column; gap: var(--space-lg); flex: 1;">
+                    <!-- Wallet Type Section -->
                     <div class="setup-section">
                         <div class="form-group">
                             <label class="form-label">Wallet Type</label>
@@ -184,6 +189,7 @@
                             <input type="text" id="initial-wallet-name" name="wallet-name" class="form-input" placeholder="Enter wallet name" value="Main Wallet" required>
                         </div>
                         
+                        <!-- Import-specific fields (hidden by default) -->
                         <div id="import-fields" class="import-fields" style="display: none;">
                             <div class="form-group">
                                 <label for="initial-private-key" class="form-label">Private Key (Base64)</label>
@@ -197,6 +203,7 @@
                         </div>
                     </div>
                     
+                    <!-- Password Section -->
                     <div class="setup-section">
                         <div class="form-group">
                             <label for="initial-password" class="form-label">Password <span style="opacity: 0.6; font-weight: normal;">(Optional)</span></label>
@@ -220,6 +227,7 @@
             </div>
         </div>
 
+        <!-- Wallet List Screen -->
         <div id="wallet-list-screen" class="screen hidden">
             <div class="header">
                 <button id="wallet-list-back" class="back-btn" title="Back">←</button>
@@ -229,10 +237,12 @@
             
             <div class="wallet-list-content">
                 <div id="wallet-list-content" class="wallet-cards-container">
+                    <!-- Wallet cards will be dynamically inserted here -->
                 </div>
             </div>
         </div>
 
+        <!-- Add Wallet Screen -->
         <div id="add-wallet-screen" class="screen hidden">
             <div class="header">
                 <button id="add-wallet-back" class="back-btn" title="Back">←</button>
@@ -261,6 +271,7 @@
             </div>
         </div>
 
+        <!-- Generate Wallet Screen -->
         <div id="generate-wallet-screen" class="screen hidden">
             <div class="header">
                 <button id="generate-wallet-back" class="back-btn" title="Back">←</button>
@@ -288,6 +299,7 @@
             </div>
         </div>
 
+        <!-- Import Wallet Screen -->
         <div id="import-wallet-screen" class="screen hidden">
             <div class="header">
                 <button id="import-wallet-back" class="back-btn" title="Back">←</button>
@@ -325,6 +337,7 @@
             </div>
         </div>
 
+        <!-- Send Screen -->
         <div id="send-screen" class="screen hidden">
             <div class="header">
                 <button id="send-back" class="back-btn" title="Back">←</button>
@@ -362,6 +375,7 @@
             </div>
         </div>
 
+        <!-- Receive Screen -->
         <div id="receive-screen" class="screen hidden">
             <div class="header">
                 <button id="receive-back" class="back-btn" title="Back">←</button>
@@ -392,6 +406,7 @@
             </div>
         </div>
 
+        <!-- History Screen -->
         <div id="history-screen" class="screen hidden">
             <div class="header">
                 <button id="history-back" class="back-btn" title="Back">←</button>
@@ -407,10 +422,12 @@
             
             <div style="padding: var(--space-lg); flex: 1; overflow-y: auto;">
                 <div id="transactions-list">
+                    <!-- Transaction history will be loaded dynamically -->
                 </div>
             </div>
         </div>
 
+        <!-- Settings Screen -->
         <div id="settings-screen" class="screen hidden">
             <div class="header">
                 <button id="settings-back" class="back-btn" title="Back">←</button>
@@ -456,6 +473,7 @@
             </div>
         </div>
 
+        <!-- Change Password Screen -->
         <div id="change-password-screen" class="screen hidden">
             <div class="header">
                 <button id="back-to-settings-from-change-password" class="back-btn" title="Back">←</button>
@@ -491,6 +509,7 @@
             </div>
         </div>
 
+        <!-- Create Password Screen (from Settings) -->
         <div id="create-password-screen" class="screen hidden">
             <div class="header">
                 <button id="create-password-back" class="back-btn" title="Back">←</button>
@@ -525,6 +544,7 @@
             </div>
         </div>
 
+        <!-- Password Setup Screen -->
         <div id="password-setup-screen" class="screen hidden">
             <div class="header">
                 <button id="password-setup-back" class="back-btn" title="Back">←</button>
@@ -562,6 +582,7 @@
             </div>
         </div>
 
+        <!-- Unlock Screen -->
         <div id="password-unlock-screen" class="screen hidden">
             <div class="header">
                 <div></div>
@@ -599,6 +620,7 @@
             </div>
         </div>
 
+        <!-- Wallet Details Screen (After Creation) -->
         <div id="wallet-details-screen" class="screen hidden">
             <div class="header">
                 <div></div>
@@ -624,12 +646,12 @@
                     
                     <div class="form-group">
                         <label class="form-label">Private Key (Base64)</label>
-                        <textarea id="wallet-details-private-key" class="form-textarea" readonly style="font-family: monospace; font-size: var(--font-size-xs);">Loading...</textarea>
+                        <textarea id="wallet-details-private-key" class="form-textarea copyable" readonly style="font-family: monospace; font-size: var(--font-size-xs); cursor: pointer;" title="Click to copy private key">Loading...</textarea>
                 </div>
                 
                 <div class="form-group">
                         <label class="form-label">Recovery Phrase</label>
-                        <textarea id="wallet-details-mnemonic" class="form-textarea" readonly style="font-family: monospace; font-size: var(--font-size-xs);">Loading...</textarea>
+                        <textarea id="wallet-details-mnemonic" class="form-textarea copyable" readonly style="font-family: monospace; font-size: var(--font-size-xs); cursor: pointer;" title="Click to copy recovery phrase">Loading...</textarea>
                     </div>
                 </div>
                 
@@ -642,6 +664,7 @@
             </div>
         </div>
 
+    <!-- Encrypt Balance Screen -->
     <div id="encrypt-balance-screen" class="screen hidden">
         <div class="header">
             <button id="encrypt-balance-back" class="back-btn" title="Back">←</button>
@@ -680,6 +703,7 @@
         </div>
     </div>
 
+    <!-- Decrypt Balance Screen -->
     <div id="decrypt-balance-screen" class="screen hidden">
         <div class="header">
             <button id="decrypt-balance-back" class="back-btn" title="Back">←</button>
@@ -718,6 +742,7 @@
         </div>
     </div>
 
+    <!-- Private Send Screen -->
     <div id="private-send-screen" class="screen hidden">
         <div class="header">
             <button id="private-send-back" class="back-btn" title="Back">←</button>
@@ -761,6 +786,7 @@
         </div>
     </div>
 
+    <!-- Claim Transfers Screen -->
     <div id="claim-transfers-screen" class="screen hidden">
         <div class="header">
             <button id="claim-transfers-back" class="back-btn" title="Back">←</button>
@@ -770,6 +796,7 @@
         
         <div style="padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-lg); flex: 1;">
             <div id="pending-transfers-list" class="transfer-list">
+                <!-- Pending transfers will be populated here -->
             </div>
             
             <div id="no-transfers-message" class="empty-state hidden">
@@ -777,10 +804,12 @@
             </div>
             
             <div id="claim-buttons-container" class="hidden" style="margin-top: var(--space-lg);">
+                <!-- Claim buttons will be populated here -->
             </div>
         </div>
     </div>
 
+    <!-- Bulk Send Screen -->
     <div id="bulk-send-screen" class="screen hidden">
         <div class="header">
             <button id="bulk-send-back" class="back-btn" title="Back">←</button>
@@ -795,6 +824,7 @@
         </div>
         
         <div style="padding: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-lg); flex: 1;">
+            <!-- Balance Info -->
             <div class="balance-info">
                 <div class="balance-item">
                     <span>Available Balance:</span>
@@ -810,6 +840,7 @@
                 </div>
             </div>
             
+            <!-- Recipients List -->
             <div class="form-group">
                 <label class="form-label">Recipients (<span id="recipient-count">0</span>)</label>
                 <div id="recipients-list" style="max-height: 200px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); padding: var(--space-sm);">
@@ -819,6 +850,7 @@
                 </div>
             </div>
             
+            <!-- Add Recipient Form -->
             <form id="add-recipient-form" novalidate style="display: flex; flex-direction: column; gap: var(--space-xs);">
                 <div class="form-group">
                     <label for="bulk-recipient-address" class="form-label">Add Recipient</label>
@@ -827,12 +859,13 @@
                 <div class="form-group">
                     <input type="text" id="bulk-recipient-amount" class="form-input" placeholder="0.000000 (amount)">
                 </div>
-                <button type="submit" class="btn btn-secondary" style="align-self: flex-start;">
+                <button type="submit" class="btn btn-secondary" style="align-self: flex-start; padding: var(--space-xs) var(--space-md); font-size: var(--font-size-xs); min-height: 32px; margin-bottom: var(--space-xl);">
                     Add Recipient
                 </button>
             </form>
             
-            <div class="action-buttons" style="margin-top: auto;">
+            <!-- Bulk Actions -->
+            <div class="action-buttons" style="margin-top: auto; margin-bottom: var(--space-lg);">
                 <button id="clear-all-btn" class="btn btn-secondary">
                     Clear All
                 </button>
@@ -843,6 +876,7 @@
         </div>
     </div>
 
+    <!-- Message Overlay -->
     <div id="message-overlay" class="hidden">
         <div id="message-content">
             <div id="message-header">
@@ -853,6 +887,7 @@
             </div>
         </div>
 
+        <!-- Loading Overlay -->
     <div id="loading-overlay" class="hidden">
         <div id="loading-content">
             <div class="loading-spinner"></div>
@@ -860,6 +895,7 @@
         </div>
     </div>
 
+    <!-- Error Display -->
     <div id="error-display" class="hidden">
         <div class="error-content">
             <h2>Startup Error</h2>
@@ -871,6 +907,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="libs/nacl.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/error-handler.js"></script>

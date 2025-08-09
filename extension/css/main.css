@@ -19,6 +19,17 @@
 
 /* CSS Reset & Base */
 
+/* Number input spinner removal */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* Utility Classes */
 .hidden {
     display: none !important;
@@ -450,6 +461,11 @@ body {
     text-align: center;
     position: relative;
     flex-shrink: 0; /* Prevent button from shrinking */
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Specific styling for the + button to ensure perfect centering */
@@ -470,10 +486,15 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1;
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 22px;
+    font-weight: 300;
     color: var(--text-inverse);
     text-indent: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .back-btn:hover {
@@ -482,10 +503,105 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Specific hover behavior for Add Wallet button - prevent transform offset */
+.back-btn[title="Add Wallet"]:hover,
+#add-wallet-btn:hover {
+    background: var(--glass-bg-strong);
+    transform: none !important; /* Override the translateX(-2px) from general hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the + button's pseudo-element remains centered */
+.back-btn[title="Add Wallet"]:hover::before {
+    transform: translate(-50%, -50%);
+}
+
+/* Fix + button positioning and ensure it's perfectly centered */
+#add-wallet-btn,
+.back-btn[title="Add Wallet"] {
+    position: relative;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+#add-wallet-btn::before,
+.back-btn[title="Add Wallet"]::before {
+    content: '+' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 24px !important;
+    line-height: 1 !important;
+    font-weight: 300 !important;
+}
+
+/* Wallet Switch Loading Animation */
+.wallet-switch-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+.wallet-switch-loading .loading-content {
+    background: var(--glass-bg-strong);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+}
+
+.wallet-switch-loading .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: wallet-switch-spin 1s linear infinite;
+    margin: 0 auto var(--space-sm);
+}
+
+.wallet-switch-loading .loading-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.wallet-switch-loading .wallet-info {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-xs);
+    margin-top: var(--space-xs);
+}
+
+@keyframes wallet-switch-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .back-btn:focus {
-    outline: none;
+    outline: none !important;
     background: var(--glass-bg-strong);
     border-color: var(--glass-border);
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
 }
 
 /* Settings Button - Dedicated style for main screen */
@@ -653,7 +769,7 @@ body {
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm);
+    gap: var(--space-lg);
     width: 100%;
 }
 
@@ -812,15 +928,7 @@ body {
 }
 
 .task-icon {
-    font-size: 24px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md);
-    flex-shrink: 0;
+    display: none;
 }
 
 .task-info {
@@ -977,24 +1085,26 @@ body {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-.wallet-card:hover::before {
+.wallet-card:not(.active):hover::before {
     opacity: 1;
 }
 
 .wallet-card.active {
     border: 2px solid rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.2);
+    position: relative;
 }
 
-.wallet-card.active::after {
+.wallet-card.active::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
+    left: -2px;
+    top: -2px;
+    bottom: -2px;
     width: 4px;
-    background: var(--primary-gradient);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    opacity: 1;
 }
 
 .wallet-card-header {
@@ -1106,7 +1216,7 @@ body {
 }
 
 .address-value {
-    color: var(--text-inverse);
+    color: rgba(255, 255, 255, 0.8);
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1170,8 +1280,8 @@ body {
 @keyframes popupSlideIn {
     from { 
         opacity: 0;
-        transform: translateY(-10px) scale(0.95);
-}
+        transform: translateY(-8px) scale(0.98);
+    }
     to { 
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -1372,7 +1482,7 @@ body {
     top: 16px;
     left: 16px;
     right: 16px;
-    z-index: 10000;
+    z-index: 15000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2439,7 +2549,7 @@ input[type="radio"] {
     align-items: center;
     justify-content: center;
     z-index: 10000;
-    animation: overlayFadeIn var(--transition-medium);
+    animation: overlayFadeIn 0.2s ease-out;
 }
 
 .warning-popup {
@@ -2452,7 +2562,7 @@ input[type="radio"] {
     max-width: 90%;
     max-height: 80%;
     overflow: hidden;
-    animation: popupSlideIn var(--transition-medium);
+    animation: popupSlideIn 0.2s ease-out;
 }
 
 .warning-popup.large {
@@ -2631,6 +2741,12 @@ input[type="radio"] {
 }
 
 @keyframes overlayFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { 
+        opacity: 0; 
+        backdrop-filter: blur(0px);
+    }
+    to { 
+        opacity: 1; 
+        backdrop-filter: blur(4px);
+    }
 }

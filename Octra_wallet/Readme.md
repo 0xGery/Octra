@@ -16,7 +16,7 @@ See root `README.md` for the canonical list of permissions and security guidance
 ### Install (Developer Mode)
 1. Open Chrome and go to `chrome://extensions/`
 2. Enable "Developer mode"
-3. Click "Load unpacked" and select the `extension/` folder
+3. Click "Load unpacked" and select the `Octra_wallet/` folder
 4. The popup is available from the extensions toolbar (Octra Wallet)
 
 ### Project structure

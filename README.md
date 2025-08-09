@@ -11,10 +11,6 @@ This repository contains the Octra Wallet Chrome extension. It provides a lightw
   - `css/`: Popup and dialog styles
   - `libs/nacl.min.js`: Cryptographic library
   - `icons/`: Extension icons
-- `LICENSE`: Project license
-- `Octra_wallet.crx`: Built extension package (for manual install/distribution)
-
-Note: Build artifacts like `*.crx`, `*.pem`, and `*.zip` are ignored by `.gitignore` by default. If you intentionally keep a packaged artifact here (like `Octra_wallet.crx`), that is fine and expected for distribution.
 
 ### Features
 - **Wallet management**: Create or import (base64 private key + address)
@@ -46,19 +42,13 @@ Alternatively, if you have `Octra_wallet.crx`, you can drag-and-drop it into `ch
 This is an unofficial, community-built wallet for the Octra network. It is not affiliated with, endorsed by, or maintained by the official Octra team. Use at your own risk and always verify URLs and addresses before interacting. No warranties are provided. Keep your private key and recovery phrase secure at all times.
 
 ### Development
-- Most UI logic is in `extension/popup.html` and `extension/js/`
-- Configuration is centralized in `extension/js/config.js`
-- Background message types include `GET_EXTENSION_INFO` and `NETWORK_REQUEST` in `extension/background.js`
+- Most UI logic is in `Octra_wallet/popup.html` and `Octra_wallet/js/`
+- Configuration is centralized in `Octra_wallet/js/config.js`
+- Background message types include `GET_EXTENSION_INFO` and `NETWORK_REQUEST` in `Octra_wallet/background.js`
 
 ### Packaging
-- Zip or package the contents of `extension/` to produce a `.crx`
+- Zip or package the contents of `Octra_wallet/` to produce a `.crx`
 - Keep your private key (`.pem`) safe; do not commit it — it is ignored by `.gitignore`
 
 ### Known issues
-- Wallet generator: minor key derivation/derivative issue being investigated
 - UI duplication when switching wallets: low priority (frontend-only); functionality is unaffected
-
-### License
-See `LICENSE` for licensing details.
-
-

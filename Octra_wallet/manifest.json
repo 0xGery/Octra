@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Octra Wallet",
   "version": "1.0.0",
-  "description": "an Unofficial Octra wallet for Chrome created by 0xGery",
+  "description": "Unofficial, community-built Octra wallet for Chrome",
   "permissions": [
     "storage",
     "alarms"

@@ -29,7 +29,7 @@ This repository contains the Octra Wallet Chrome extension. It provides a lightw
 Alternatively, if you have `Octra_wallet.crx`, you can drag-and-drop it into `chrome://extensions/` (depending on Chrome version and policies).
 
 ### Permissions (see `extension/manifest.json`)
-- `storage`, `alarms`
+- `storage`, `tabs`
 - Host permissions: `https://octra.network/*`, `https://*.octra.network/*`
 
 ### Security
